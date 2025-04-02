@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="cat">
+<head>
+    <link href="style.css" rel="stylesheet"> 
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function iniciar() {
+            let a = document.getElementById ("titol");
+            let b = document.getElementById ("calcul");
+            a.style.display = "none";
+            b.style.display = "flex";
+        }
+        function calcular(){
+
+            let notaq = Number(document.getElementById("nq").value);
+
+            let percentq = Number(document.getElementById("pq").value);
+
+            let notaex = Number(document.getElementById("nex").value);
+
+            let percentex = Number(document.getElementById("pex").value);
+
+            let notaf = document.getElementById("nf");
+
+            notaf.value = percent( percentq, notaq, percentex, notaex );
+        }
+
+        function percent ( percentq, notaq, percentex, notaex ) {
+            c = ( percentq / 100) * notaq;
+            d = ( percentex / 100) * notaex;
+            return ( c + d )
+        }
+
+    </script>
+ </head>
+ <body>
+    <div id="titol">
+        <h1>
+            Calculadora de notes
+        </h1>
+        <button onclick ="iniciar()" type="button">📈 🤠Començar🤠 📉</button>
+        <div id="spacer"> </div>
+    </div>
+    <div id="calcul">
+        <div id="nota-quadern">
+            <p>
+                Nota Quadern
+            </p>
+            <input id="nq" type="text"  oninput="calcular()">
+            <p>
+                Percentatge
+            </p>
+            <input id="pq" type="text" oninput="calcular()">
+        </div>
+        <div id="nota-examen">
+            <p>
+                Nota Examen
+            </p>
+            <input id="nex" type="text" oninput="calcular()">
+            <p>
+                Percentatge
+            </p>
+            <input id="pex" type="text" oninput="calcular()"> 
+        </div>
+        <div id="nota-final">
+            <p>
+                Nota Final
+            </p>
+            <input type="text" id="nf">
+        </div>
+
+    </div>
+ </body>
+</html>
